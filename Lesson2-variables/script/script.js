@@ -1,0 +1,11 @@
+let userAge = 27;
+const userFirstName = "John";
+const userLastName = "Wick";
+let newRegisteredUser;
+let shoppingList;
+let userOnlineStatus;
+let salaryWorker;
+let cursorCoordinates;
+console.log (`userAge`, userAge);
+console.log (`userFirstName`, userFirstName);
+console.log (`userLastName`, userLastName);

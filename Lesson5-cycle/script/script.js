@@ -9,30 +9,29 @@ do {
         alert ("Sorry, you can't sign up. Please try again later!");
         break;        
     } else {
-        for (attemptAuthorize = 3; attemptAuthorize !== 0; attemptAuthorize--) {
-            alert (`You have ${attemptAuthorize} attempts to authorize!`);
-            let userLogin = prompt ("Login: ");
-            let userPassword = prompt ("Password: ");
-            if (!userLogin) {
-                alert ("Please, enter your login!");
-                continue;
-            }
-            if (!userPassword) {
-                alert ("Please, enter your password!");
-                continue;
-            }
-            if (userLogin === LOGIN && userPassword === PASSWORD) {
-                isAuthorizeSuccess = true;
-                alert ("Welcome!");
-                break;
-            } else {
-                alert ("Wrong login or password!");
-            }
-            }
+        alert (`You have ${attemptAuthorize} attempts to authorize!`);
+        let userLogin = prompt ("Login: ");
+        let userPassword = prompt ("Password: ");
+        attemptAuthorize--
+        if (!userLogin) {
+            alert ("Please, enter your login!");
+            continue;
+        }
+        if (!userPassword) {
+            alert ("Please, enter your password!");
+            continue;
+        }
+        if (userLogin === LOGIN && userPassword === PASSWORD) {
+            isAuthorizeSuccess = true;
+            alert ("Welcome!");
+            break;
+        } else {
+            alert ("Wrong login or password!");
+        }
         }
     } while (!isAuthorizeSuccess);
 }
-//authorizeUser ();
+authorizeUser ();
 //Task 2
 const getPrimeNumbers = (numberStart, numberFinish) => {
     for (numberStart; numberStart <= numberFinish; numberStart++) {

@@ -34,12 +34,10 @@ const fruitsArray = [
 const getOccurrencesCount = (dataArray) => {
     const resultCount = {};
     for (let element of dataArray) {
-        let counter = 0;
-        for (let i = 0; i < dataArray.length; i++) {
-            if (element === dataArray[i]) {
-                counter++;
-                resultCount[element] = counter;
-            }
+        if (!resultCount[element]) {
+            resultCount[element] = 1;
+        } else {
+            resultCount[element] += 1
         }
     }
     return resultCount;

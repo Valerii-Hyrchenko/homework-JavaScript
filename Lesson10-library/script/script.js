@@ -38,22 +38,16 @@ const take = () => {
         alert("You don't entered any book name!");
         return;
     }
-    if (books.some((book) => ((book.name.toLowerCase() === askedBook) || (book.author.toLowerCase() === askedBook)) && book.booksQuantity > 0)) {
-        let idBook = 0;
-        for (let book of books) {
-            if ((book.name.toLowerCase() === askedBook) || book.author.toLowerCase() === askedBook) {
-                idBook += book.id;//Наверное не лучший способ найти нужное ID, подумаю как можно написать лучше, наверное через array.find() 
-                book.booksQuantity--;
-            }
-        } 
-        alert(`You can take your book! Your id is ${idBook}`);
-    } else if (books.some((book) => ((book.name.toLowerCase() === askedBook) || (book.author.toLowerCase() === askedBook)) && book.booksQuantity <= 0)) {
-        alert("Someone else is reading your book now, please try again later.");
-    } else {
+    let resultBook = books.find((book) => ((book.name.toLowerCase() === askedBook) || (book.author.toLowerCase() === askedBook)));
+    if (!resultBook) {
         alert("You entered wrong book name.");
+    } else if (resultBook.booksQuantity <= 0) {
+        alert("Someone else is reading your book now, please try again later.")
+    } else {
+        alert(`You can take your book! Your id is ${resultBook.id}`)
+        resultBook.booksQuantity--;
     }
 }
-
 const restore = () => {
     let restoreBook = prompt("Please enter id your book.");
     let indicator = 0;
